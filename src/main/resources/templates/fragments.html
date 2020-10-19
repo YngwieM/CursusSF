@@ -1,0 +1,22 @@
+<div xmlns:th="http://www.thymeleaf.org">
+    <nav th:fragment="menu">
+        <ul>
+            <li><a th:href="@{/}">Welkom</a></li>
+            <li><a th:href="@{/pizzas}">Pizza's</a></li>
+            <li><a th:href="@{/os}">OS</a></li>
+            <li><a th:href="@{/kleuren}">Kleur</a></li>
+            <li><a th:href="@{/pizzas/prijzen}">Prijzen</a></li>
+            <li><a th:href="@{/pizzas/vantotprijs/form}">Van tot prijs</a></li>
+            <li><a th:href="@{/pizzas/toevoegen/form}">Toevoegen</a></li>
+            <li><a th:href="@{/identificatie}">Identificatie</a></li>
+            <li><a th:href="@{/mandje}">Mandje</a></li>
+
+
+        </ul>
+    </nav>
+    <head th:fragment="head(title)">
+        <link rel="icon" th:href="@{/images/luigi.ico}" type="image/x-icon">
+        <title th:text="${title}"></title>
+        <link rel="stylesheet" th:href="@{/css/luigi.css}">
+    </head>
+</div>

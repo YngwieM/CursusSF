@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="nl" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments::head(title='Identificatie')"></head>
+<body>
+<script th:src="@{/js/preventDoubleSubmit.js}" defer></script>
+<nav th:replace="fragments::menu"></nav>
+<h1>Identificatie</h1>
+<form th:object="${identificatie}" method="post" th:action="@{/identificatie}">
+    <label>Email adres:<span th:errors="*{emailAdres}"></span>
+        <input th:field="*{emailAdres}" autofocus required type="email"></label>
+    <button>OK</button>
+</form>
+</body>
+</html>

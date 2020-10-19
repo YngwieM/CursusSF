@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="nl" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments::head(title='Prijzen')"></head>
+<body>
+<nav th:replace="fragments::menu"></nav><h1>Prijzen</h1>
+<ul>
+    <li th:each="prijs:${prijzen}">
+        <a th:href="@{/pizzas/prijzen/{prijs}(prijs=${prijs})}"
+           th:text="${prijs}"></a>
+    </li>
+</ul>
+<h2 th:if="${prijs}">Pizzas van <span th:text="${prijs}"></span> €:</h2>
+<ul th:if="${pizzas}">
+    <li th:each="pizza:${pizzas}" th:text="${pizza.naam}"></li>
+</ul>
+</body>
+</html>

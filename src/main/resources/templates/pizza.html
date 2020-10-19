@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="nl" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments::head(title = ${pizza} ? ${pizza.naam} :
+ 'Pizza niet gevonden')"></head>
+<body>
+<nav th:replace="fragments::menu"></nav>
+<h1 th:if="not ${pizza}">Pizza niet gevonden:
+    <span th:text="${id}"></span>
+</h1>
+<div th:if="${pizza}" th:object="${pizza}">
+    <h1 th:text="*{naam}"></h1>
+    <dl>
+        <dt>Nummer</dt>
+        <dd th:text="*{id}"></dd>
+        <dt>Prijs</dt>
+        <dd th:text="*{prijs}"></dd>
+        <dt th:if="${inDollar}">In dollar</dt>
+        <dd th:if="${inDollar}" th:text="${inDollar}"></dd>
+        <dt>Pikant</dt>
+        <dd th:text="*{pikant} ? 'Ja' : 'Nee'"></dd>
+    </dl>
+    <form method="post" th:action="@{/mandje/{id}(id=*{id})}">
+        <button>In mandje</button>
+    </form>
+</div>
+</body>
+</html>

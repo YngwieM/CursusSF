@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="nl" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments::head(title='Toevoegen')"></head>
+<body>
+<script th:src="@{/js/preventDoubleSubmit.js}" defer></script>
+<nav th:replace="fragments::menu"></nav>
+<h1>Toevoegen</h1>
+<form th:object="${pizza}" method="post" th:action="@{/pizzas}">
+    <label>Naam:<span th:errors="*{naam}"></span>
+        <input th:field="*{naam}" autofocus required></label>
+    <label>Prijs:<span th:errors="*{prijs}"></span>
+        <input th:field="*{prijs}" type="number" required min="0"></label>
+    <label>Pikant:<input type="checkbox" th:field="*{pikant}"></label>
+    <input type="hidden" name="id" value="0"/>
+    <button>Toevoegen</button>
+</form>
+</body>
+</html>

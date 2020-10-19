@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="nl" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments::head(title='Pizza\'s')"></head>
+<body>
+<nav th:replace="fragments::menu"></nav>
+<div th:if="${param.toegevoegd}" class="boodschap">Pizza is toegevoegd.
+    Hij heeft het nummer <span th:text="${param.toegevoegd}"></span>.</div>
+<h1>Pizza's</h1>
+<ul class="zebra">
+    <li th:each="pizza:${pizzas}" th:object="${pizza}">
+        <span th:text="*{naam}"></span> &euro; <span th:text="*{prijs}"></span>
+        <span th:if="*{pikant}"> pikant</span>
+        <a th:href="@{/pizzas/{id}(id=*{id})}">detail</a>
+    </li>
+</ul>
+</body>
+</html>

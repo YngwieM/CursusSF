@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="nl" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments::head(title='Pizza Luigi')"></head>
+<body>
+<nav th:replace="fragments::menu"></nav>
+<h1>Pizza Luigi</h1>
+<img th:src="@{/images/luigi.jpg}" alt="pizza" class="fullwidth">
+<h2>Goede <span th:text="${moment}"></span></h2>
+<h2>De zaakvoerder</h2>
+<dl th:object="${zaakvoerder}">
+    <dt>Naam</dt>
+    <dd th:text="*{naam}"></dd>
+    <dt>Aantal kinderen</dt>
+    <dd th:text="*{aantalKinderen}"></dd>
+    <dt>Gehuwd</dt>
+    <dd th:text="*{gehuwd} ? 'Ja' : 'Nee'"></dd>
+    <dt>Adres</dt>
+    <dd th:object="${zaakvoerder.adres}"
+        th:text="|*{straat} *{huisNr} *{postcode} *{gemeente}|"></dd>
+</dl>
+<p>De pagina werd <span th:text="${aantalKeerBekeken}"></span> keer bekeken.</p>
+<p th:text="${identificatie.emailAdres}"></p>
+</body>
+</html>
+
+
+
+

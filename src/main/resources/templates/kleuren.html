@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="nl" xmlns:th='http://www.thymeleaf.org'>
+<head th:replace="fragments::head(title='Pizza Luigi')"></head>
+<body th:class="${kleur}">
+<nav th:replace="fragments::menu"></nav>
+<h1>Kleur</h1>
+<p><a th:href="@{/kleuren/roze}">Roze</a></p>
+<p><a th:href="@{/kleuren/blauw}">Blauw</a></p>
+</body>
+</html>

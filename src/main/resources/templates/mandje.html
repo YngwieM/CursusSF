@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="nl" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments::head(title='Mandje')"></head>
+<body>
+<nav th:replace="fragments::menu"></nav>
+<h1>Mandje</h1>
+<ul th:if="not ${pizzas.empty}">
+    <li th:each="pizza:${pizzas}" th:text="${pizza.naam}"></li>
+</ul>
+<div th:if="${pizzas.empty}">Je mandje is leeg.</div>
+</body>
+</html>
