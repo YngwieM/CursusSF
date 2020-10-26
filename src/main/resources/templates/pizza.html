@@ -13,9 +13,9 @@
         <dt>Nummer</dt>
         <dd th:text="*{id}"></dd>
         <dt>Prijs</dt>
-        <dd th:text="*{prijs}"></dd>
-        <dt th:if="${inDollar}">In dollar</dt>
-        <dd th:if="${inDollar}" th:text="${inDollar}"></dd>
+        <dd th:text="*{{prijs}}"></dd>
+        <dt th:if=" ${#numbers.formatDecimal(inDollar,1,2)}">In dollar</dt>
+        <dd th:if=" ${#numbers.formatDecimal(inDollar,1,2)}" th:text=" ${#numbers.formatDecimal(inDollar,1,2)}"></dd>
         <dt>Pikant</dt>
         <dd th:text="*{pikant} ? 'Ja' : 'Nee'"></dd>
     </dl>

@@ -8,7 +8,7 @@
 <h1>Pizza's</h1>
 <ul class="zebra">
     <li th:each="pizza:${pizzas}" th:object="${pizza}">
-        <span th:text="*{naam}"></span> &euro; <span th:text="*{prijs}"></span>
+        <span th:text="*{naam}"></span> &euro; <span th:text="*{{prijs}}"></span>
         <span th:if="*{pikant}"> pikant</span>
         <a th:href="@{/pizzas/{id}(id=*{id})}">detail</a>
     </li>

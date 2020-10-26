@@ -1,5 +1,7 @@
 package be.vdab.luigi.domain;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDate;
 
 public class Persoon {
@@ -7,6 +9,7 @@ public class Persoon {
     private final String familienaam;
     private final int aantalKinderen;
     private final boolean gehuwd;
+    @DateTimeFormat(style = "S-")
     private final LocalDate geboorte;
     private final Adres adres;
 
